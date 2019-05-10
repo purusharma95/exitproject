@@ -1,0 +1,72 @@
+<app-applicant-home></app-applicant-home>
+<style ></style>
+<body>
+    <div style="margin-left: 12%;background-color: black;  margin-top: -9px">
+<h1 style="padding-top: 40px;padding-left: -20px; color: rgb(1, 1, 175);  text-align: center">Welcome {{editapplicant.name}} </h1>
+<br>
+</div>
+<br><br>
+<div style="margin-left: 13%;">
+    <a style="font-size: 20px; margin-left:38% ">Applicant Details</a>
+    <br><br>
+<div class="container">
+    <table class="table table-bordered table-inverse" style="color:rgb(66, 66, 66)">
+      <tr>
+        <th>EmailId</th>
+        <th>Name</th>
+        <th>Contact</th>
+        <th>Batch</th>
+        <th>Level</th>
+        
+      </tr>
+      <tr >
+        <td>
+          {{editapplicant.email}}
+        </td>
+        <td>
+          {{editapplicant.name}}
+        </td>
+        <td>
+          {{editapplicant.contactNumber}}
+        </td>
+        <td>{{editapplicant.batch.technology}}</td>
+        <td>{{editapplicant.level.levelName}}</td>
+      </tr>
+    </table>
+  </div>
+  <br><br><br>
+
+  <div *ngIf="AAR[0]==undefined; else showpoints">
+    
+
+
+  </div>
+  <ng-template #showpoints>
+  <a style="font-size: 20px; margin-left:38% ">Applicant Points</a>
+  <br><br>
+  <div class="container">
+  <table class="table table-bordered table-inverse" style="color:rgb(66, 66, 66)">
+    <!-- <th style="text-align: center;">Applicant Points</th> -->
+  <tr>
+      <th>Level Qualification points</th>
+      <th>Points Earned</th>
+      <th>Remaining Points</th>
+  </tr>
+  <tr>
+      <td>{{AAR["0"].applicantDetails.level.qualifyPoints}}</td>
+      <td>{{sum}}</td>
+      <td>{{AAR["0"].applicantDetails.level.qualifyPoints-sum}}</td>
+  </tr>
+  </table>
+</div>
+</ng-template>
+  <br>
+  <br>
+<!-- <div *ngIf="AAR">
+  <p style="color: rgb(66, 66, 66);margin-left:5%">  Level Qualification points -{{AAR["0"].applicantDetails.level.qualifyPoints}}</p>
+<p style="color: rgb(66, 66, 66);margin-left:5%">  Points Earned- {{sum}}</p>
+<p style="color: rgb(66, 66, 66);margin-left:5%">  Remaining Points - {{AAR["0"].applicantDetails.level.qualifyPoints-sum}}</p>
+</div> -->
+<br>
+</div>
+</body>

@@ -1,0 +1,40 @@
+<app-applicant-home></app-applicant-home>
+<div style="margin-left: 12%; background-color: black;">
+    <h1 style="padding-top: 40px;padding-left: -20px; color: rgb(1, 1, 175);  text-align: center">Edit Profile</h1>
+    <br>
+    </div>
+    <br>
+    <br>
+<div *ngIf="check==true" style="margin-left: 13%">
+  <div class="container">
+    <form [formGroup]="applicantEditform" style="width: 60% ;align-items: center; margin-left: 15%" novalidate>
+        <div *ngIf="validateMessage != ''">
+            <h3 class="has-info">{{validateMessage}}</h3>
+          </div>
+
+      <div>
+        <label>Applicant Name</label>
+        <input type="text" class="form-control" value={{editapplicant.name}} formControlName="name" />
+      </div>
+
+      <div class="form-group">
+        <label>Email</label>
+        <input type="text" class="form-control" value="{{editapplicant.email}}" formControlName="email" />
+      </div>
+
+      <div class="form-group">
+        <label>Conatct Number</label>
+        <input type="number" step="1" pattern="\d+" value="{{editapplicant.contactNumber}}"
+          formControlName="contactNumber" />
+      </div>
+
+      <div class="form-group">
+        <label>Password</label>
+        <input type="password" class="form-control" value="{{editapplicant.password}}" formControlName="password" />
+      </div>
+      <div>
+        <button class="btn btn-primary" (click)="updateApplicantDetails()">Update</button>
+      </div>
+    </form>
+  </div>
+</div>
